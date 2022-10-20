@@ -5,8 +5,9 @@
 public class FriendspairingProblem {
     public static  int friendsPairing (int n){
         //base class
-        if(n==1 || n==2)
+        if(n==1 || n==2){
             return n;
+        }
         
         // choice to be reamained single
         int fnm1 = friendsPairing(n-1);
@@ -21,6 +22,7 @@ public class FriendspairingProblem {
         return totways;
     }
     public static void main(String[] args) {
-        System.out.println(3);
+        int n = 3;
+        System.out.println(friendsPairing(n));
     }
 }
