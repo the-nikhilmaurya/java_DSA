@@ -93,20 +93,43 @@ class first_try
         return size;
     }
 
+    // reverse the linkedlist using iterative approach
+    public void reverseIterate(){
+
+        if(head == null || head.next == null){
+            return;
+        }
+        Node prevNode = head;
+        Node currNode = head.next;
+        while (currNode != null){
+            Node nextNode = currNode.next;
+            currNode.next = prevNode;
+
+            // update
+            prevNode = currNode;
+            currNode = nextNode;
+        }
+        head.next = null;
+        head = prevNode;
+
+    }
+
     public static void main(String args[]){
         
         first_try list = new first_try();
+        list.addFirst("book");
         list.addFirst("a");
         list.addFirst("is");
-        list.printlist();
-
-        list.addLast("book");
-        list.printlist();
         list.addFirst("this");
-        list.printlist();
+
+        // list.addLast("is");
+        // list.printlist();
+        // list.printlist();
 
         // list.removeFirst();
-        list.removeLast();
+        // list.removeLast();
+        list.printlist();
+        list.reverseIterate();
         list.printlist();
         System.out.println(list.getSize());
 
