@@ -114,6 +114,20 @@ class first_try
 
     }
 
+    // add in the middle 
+    public void add(int indx,String data){
+        Node newNode = new Node(data);
+        Node temp = head;
+        int i =0;
+
+        while (i< indx-1){
+            temp = temp.next;
+            i++;
+        }
+        newNode.next = temp.next;
+        temp.next = newNode;
+    }
+
     public static void main(String args[]){
         
         first_try list = new first_try();
@@ -129,7 +143,8 @@ class first_try
         // list.removeFirst();
         // list.removeLast();
         list.printlist();
-        list.reverseIterate();
+        list.add(2,"done" );
+        // list.reverseIterate();
         list.printlist();
         System.out.println(list.getSize());
 
