@@ -133,6 +133,25 @@ class first_try
         temp.next = newNode;
     }
 
+    // searching key using recursive approach for that i need to create an helper function
+    public int recSearch(String key){
+        return helper(head, key);
+    }
+
+    public int helper(Node head,String key){
+        if(head == null){
+            return -1;
+        }
+        if(head.data.equals(key)){
+            return 0;
+        }
+        int idx = helper(head.next, key);
+        if(idx == -1){
+            return -1;
+        }
+        return idx+1;
+    }
+
     public static void main(String args[]){
         
         first_try list = new first_try();
@@ -147,11 +166,13 @@ class first_try
 
         // list.removeFirst();
         // list.removeLast();
-        list.printlist();
         list.add(2,"done" );
-        // list.reverseIterate();
         list.printlist();
-        System.out.println(list.getSize());
+        // list.reverseIterate();
+        // list.printlist();
+        // System.out.println(list.getSize());
+
+        System.out.println(list.recSearch("book"));
 
     }
 }
